@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "ncu:all": "bash ./ncu-all.sh"
+    "ncu:all": "bash ./ncu-all.sh",
+    "ncu:report": "node ./tools/generate-ncu-report.js",
+    "ncu:serve": "node ./tools/ncu-server.js",
+    "ncu:ui": "npm run ncu:report && npm run ncu:serve"
   },
   "dependencies": {
     "npm-check-updates": "^19.1.2"
