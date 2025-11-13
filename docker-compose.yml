@@ -1,0 +1,38 @@
+services:
+  astro:
+    build:
+      context: ./astro-website
+      dockerfile: Dockerfile
+    networks:
+      - webnet
+
+  react:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    networks:
+      - webnet
+
+  api:
+    build:
+      context: ./node-api
+      dockerfile: Dockerfile
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/proxy.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - astro
+      - react
+      - api
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
