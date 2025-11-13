@@ -1,0 +1,11 @@
+{
+  "name": "quick-business-launch-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ncu:all": "bash ./ncu-all.sh"
+  },
+  "dependencies": {
+    "npm-check-updates": "^19.1.2"
+  }
+}
